@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jonsky Store — Products</title>
+  <link rel="stylesheet" href="cream.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Jonsky Store</a>
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+      <ul id="main-nav" class="nav" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="product.html" aria-current="page">Products</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content" id="content">
+    <h1>Our Products</h1>
+
+    <div class="product-list">
+      <!-- Product 1 -->
+      <div class="product">
+        <img src="c:\Users\User\Pictures\vanilla.ice.cream.jpg" alt="Vanilla Ice Cream" width="300" height="200">
+        <p><strong>Vanilla Ice Cream</strong></p>
+        <p>Price: ₱20</p>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product">
+        <img src="c:\Users\User\Pictures\Ube-Ice-Cream-.webp" alt="Ube Ice Cream" width="300" height="200">
+        <p><strong>Ube Ice Cream</strong></p>
+        <p>Price: ₱20</p>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product">
+        <img src="images/chocolate-ice-cream.jpg" alt="Chocolate Ice Cream" width="300" height="200">
+        <p><strong>Chocolate Ice Cream</strong></p>
+        <p>Price: ₱25</p>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product">
+        <img src="images/mango-ice-cream.jpg" alt="Mango Ice Cream" width="300" height="200">
+        <p><strong>Mango Ice Cream</strong></p>
+        <p>Price: ₱22</p>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product">
+        <img src="images/strawberry-ice-cream.jpg" alt="Strawberry Ice Cream" width="300" height="200">
+        <p><strong>Strawberry Ice Cream</strong></p>
+        <p>Price: ₱23</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('main-nav');
+
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('nav-open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-inner')) {
+          nav.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) {
+          nav.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
